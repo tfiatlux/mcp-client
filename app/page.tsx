@@ -85,6 +85,11 @@ const ChatWindow = styled(Window)<{ $highContrast?: boolean; $largeText?: boolea
   display: flex;
   flex-direction: column;
   border: ${props => props.$highContrast ? '3px solid #FFFF00' : 'none'};
+
+  @media (max-width: 768px) {
+    height: 65vh;
+    min-height: 400px;
+  }
 `;
 
 const ChatContent = styled(WindowContent)`
