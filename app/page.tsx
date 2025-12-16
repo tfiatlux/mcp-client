@@ -447,12 +447,11 @@ export default function ChatPage() {
       <AppBar style={{ position: "fixed", top: 0, zIndex: 50, border: accessibilitySettings.highContrast ? '3px solid #FFFF00' : 'none', backgroundColor: accessibilitySettings.highContrast ? '#000000' : undefined, color: accessibilitySettings.highContrast ? '#FFFF00' : undefined }}>
         <Toolbar style={{ justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <Button variant="menu">Start</Button>
-            <div style={{ marginLeft: "10px", fontWeight: "bold", fontSize: accessibilitySettings.largeText ? '1.125rem' : '1rem' }}>Gemini Chat 2.5</div>
+            <div style={{ marginLeft: "10px", fontWeight: "bold", fontSize: accessibilitySettings.largeText ? '1.125rem' : '1rem' }}>Misty</div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <Link href="/mcp" style={{ textDecoration: 'none' }}>
-              <Button>
+              <Button style={{ display: 'flex', alignItems: 'center' }}>
                 <Server size={16} style={{ marginRight: 4 }} />
                 MCP
                 {connectedServersCount > 0 && (
@@ -473,11 +472,10 @@ export default function ChatPage() {
                 )}
               </Button>
             </Link>
-            <Button onClick={() => setIsSettingsOpen(!isSettingsOpen)}>
+            <Button onClick={() => setIsSettingsOpen(!isSettingsOpen)} style={{ display: 'flex', alignItems: 'center' }}>
               <Settings size={16} style={{ marginRight: 4 }} />
               접근성
             </Button>
-            <TextField placeholder="Search..." width={150} />
           </div>
         </Toolbar>
       </AppBar>
@@ -533,7 +531,7 @@ export default function ChatPage() {
                 <Plus size={16} style={{ marginRight: 8 }} />
                 New Chat
             </Button>
-            <ScrollView style={{ flex: 1, background: "white" }}>
+            <ScrollView style={{ flex: 1, background: "white", overflowX: "hidden" }}>
                 {sessions.length === 0 ? (
                     <div style={{ padding: "1rem", textAlign: "center", color: "#888" }}>No history</div>
                 ) : (
@@ -551,7 +549,7 @@ export default function ChatPage() {
                                 }}
                                 onClick={() => switchSession(session.id)}
                             >
-                                <div style={{ display: "flex", alignItems: "center", overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis", flex: 1 }}>
+                                <div style={{ display: "flex", alignItems: "center", overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis", flex: 1, minWidth: 0 }}>
                                     <MessageSquare size={14} style={{ marginRight: "8px", flexShrink: 0 }} />
                                     <span style={{ overflow: "hidden", textOverflow: "ellipsis" }}>{session.title}</span>
                                 </div>
@@ -613,7 +611,7 @@ export default function ChatPage() {
                       height="48"
                       style={{ marginBottom: '1rem' }}
                     />
-                    <p>Welcome to Gemini Chat 2.5</p>
+                    <p>Welcome to Misty</p>
                     <p>Type a message to start...</p>
                 </div>
             )}
